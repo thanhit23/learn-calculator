@@ -1,12 +1,18 @@
 body {
-  background: linear-gradient(to right, #4286f4, #373B44);
+  background: #373B44;
 }
 
+.posi-rel {
+  position: relative;
+}
 .textalign-end {
   text-align: end;
 }
 .bg-listbl {
   background-color: lightsteelblue;
+}
+.fa-sun {
+  color: #fff;
 }
 .m-0 {
   margin: 0 !important;
@@ -46,10 +52,7 @@ body {
   width: 240px;
   border-radius: 10px;
 }
-.operator,
-.number {
-  width: 50px;
-  height: 50px;
+.btn-item {
   width: 50px;
   height: 50px;
   margin: 5px;
@@ -60,37 +63,35 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
-/* .container-list-item {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  height: 60px;
-  list-style: none;
-  flex-direction: row;
+.disabilities {
+  opacity: 0.5 !important;
+  cursor: auto !important;
 }
-.container-list-item li {
-  box-shadow: 0 0 5px #cccccc;
-  border: 1px solid #dfdfdf;
-  display: flex;
-  margin: 10px;
-  width: 25%;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-} */
-.empty {
+.tick-mark {
+  position: absolute;
+  top: 0;
+  left: 33%;
+}
+.dash {
+  position: absolute;
+  top: 4%;
+}
+/* .empty {
   background-color: #fff;
   box-shadow: none !important;
   border: none !important;
   cursor: default !important;
-}
-.bg-while-hover:hover {
+} */
+.btn-item:hover {
   opacity: 0.7;
 }
 .bg-btn {
-  background-color: #29DE92;
+  background-color: #41e7a2;
 }
 .result {
-  background-color: #FFD739;
+  background-color: #8ab4f8;
+}
+.btn-theme {
+  padding: 7px;
+  font-size: 25px;
 }
