@@ -5,7 +5,11 @@ var deleteButton = document.getElementsByClassName('delete');
 var operatorButton = document.getElementsByClassName('operator');
 var resultButton = document.getElementsByClassName('result');
 var bracketButton = document.getElementsByClassName('bracket');
-
+var piButton = document.getElementsByClassName('pi');
+var sunButton = document.getElementById('sun');
+var moonButton = document.getElementById('moon');
+var themeColorButton = document.getElementsByClassName('fa-solid');
+var tagBody = document.body;
 var showExValues = '';
 
 function getExValue() {
@@ -29,9 +33,7 @@ function showResult(number) {
 }
 
 function stringFormat(number) {
-  var n = Number(number);
-  var value = n.toLocaleString("en");
-  return value;
+  return Number(number).toLocaleString("en");
 }
 
 function removeStringFormat(number) {
@@ -40,8 +42,8 @@ function removeStringFormat(number) {
 
 for (let i = 0; i < number.length; i++) {
   number[i].addEventListener('click', function() {
-    var currenValue = getResult();
-    let id = this.id;
+    let currenValue = getResult();
+    const id = this.id;
     currenValue = currenValue + id;
     currenValue = removeStringFormat(currenValue);
     showResult(currenValue);
@@ -69,24 +71,18 @@ for (let i = 0; i < operatorButton.length; i++) {
     showExValues = showExValues + (getValue + this.id)
     showExValue(showExValues);
     showResult('');
-    if (this.id) {
-
-    }
   }) 
 }
 
 for (let i = 0; i < resultButton.length; i++) {
   resultButton[i].addEventListener('click', function () {
     let getExValues = getExValue();
-    console.log(getExValues);
     const getValue = getResult();
     const result = eval(getExValues + getValue);
     showResult(result);
     showExValue('');
-    showExValues = '';
   })
 }
-
 
 for (let i = 0; i < bracketButton.length; i++) {
   bracketButton[i].addEventListener('click', function () {
@@ -102,31 +98,25 @@ for (let i = 0; i < bracketButton.length; i++) {
   })
 }
 
-var piButton = document.getElementsByClassName('pi');
-
-for (let i = 0; i < piButton.length; i++) {
+for (let i  = 0; i < piButton.length; i++) {
   piButton[i].addEventListener('click', function () {
-    console.log(this.id);
     const getExValues = getExValue();
     showExValue(getExValues)
     showResult(this.id)
   })
 }
 
-var themeColorButton = document.getElementsByClassName('fa-solid');
-var changeBody = document.body;
-
 for (let i = 0; i < themeColorButton.length; i++) {
   themeColorButton[i].addEventListener('click', function () {
     if (this.id == 'sun') {
-      document.getElementById('sun').setAttribute('style', 'display: none;');
-      document.getElementById('moon').setAttribute('style', 'display: var(--fa-display,inline-block);');
-      document.body.setAttribute('style', 'background-color: #fff;')
+      sunButton.setAttribute('style', 'display: none;');
+      moonButton.setAttribute('style', 'display: var(--fa-display,inline-block);');
+      tagBody.setAttribute('style', 'background-color: #fff;')
       // document.getElementById('container-list').setAttribute('style', 'background-color: #333;');
     } else {
-      document.getElementById('sun').setAttribute('style', 'display: var(--fa-display,inline-block);');
-      document.getElementById('moon').setAttribute('style', 'display: none;');
-      document.body.setAttribute('style', '')
+      sunButton.setAttribute('style', 'display: var(--fa-display,inline-block);');
+      moonButton.setAttribute('style', 'display: none;');
+      tagBody.setAttribute('style', '')
     }
   })
 }
