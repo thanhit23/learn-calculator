@@ -1,16 +1,12 @@
-var number = document.getElementsByClassName('number');
-var operator = document.getElementsByClassName('operator');
-var result = document.getElementsByClassName('result');
-var deleteButton = document.getElementsByClassName('delete');
-var operatorButton = document.getElementsByClassName('operator');
-var resultButton = document.getElementsByClassName('result');
-var bracketButton = document.getElementsByClassName('bracket');
-var piButton = document.getElementsByClassName('pi');
-var sunButton = document.getElementById('sun');
-var moonButton = document.getElementById('moon');
-var themeColorButton = document.getElementsByClassName('fa-solid');
-var tagBody = document.body;
-var showExValues = '';
+const number = document.getElementsByClassName('number');
+const operator = document.getElementsByClassName('operator');
+const result = document.getElementsByClassName('result');
+const deleteButton = document.getElementsByClassName('delete');
+const operatorButton = document.getElementsByClassName('operator');
+const resultButton = document.getElementById('result');
+const bracketButton = document.getElementsByClassName('bracket');
+const piButton = document.getElementById('3.14');
+let showExValues = '';
 
 function getExValue() {
   return document.getElementById('exValue').innerHTML;
@@ -69,24 +65,24 @@ for (let i = 0; i < operatorButton.length; i++) {
     const getValue = removeStringFormat(getResult());
     showExValues = getExValue();
     showExValues = showExValues + (getValue + this.id)
+    console.log(showExValues);
     showExValue(showExValues);
     showResult('');
   }) 
 }
 
-for (let i = 0; i < resultButton.length; i++) {
-  resultButton[i].addEventListener('click', function () {
-    let getExValues = getExValue();
-    const getValue = getResult();
-    const result = eval(getExValues + getValue);
-    showResult(result);
-    showExValue('');
-  })
-}
+resultButton.addEventListener('click', function () {
+  let getExValues = getExValue();
+  const getValue = getResult();
+  const result = eval(getExValues + getValue);
+  showResult(result);
+  showExValue('');
+})
 
 for (let i = 0; i < bracketButton.length; i++) {
   bracketButton[i].addEventListener('click', function () {
     if (this.id == 'bracket-left') {
+
       const exValue = getExValue();
       showExValue(exValue + '(');
     } else {
@@ -98,44 +94,8 @@ for (let i = 0; i < bracketButton.length; i++) {
   })
 }
 
-for (let i  = 0; i < piButton.length; i++) {
-  piButton[i].addEventListener('click', function () {
-    const getExValues = getExValue();
-    showExValue(getExValues)
-    showResult(this.id)
-  })
-}
-
-for (let i = 0; i < themeColorButton.length; i++) {
-  themeColorButton[i].addEventListener('click', function () {
-    if (this.id == 'sun') {
-      sunButton.setAttribute('style', 'display: none;');
-      moonButton.setAttribute('style', 'display: var(--fa-display,inline-block);');
-      tagBody.setAttribute('style', 'background-color: #fff;')
-      // document.getElementById('container-list').setAttribute('style', 'background-color: #333;');
-    } else {
-      sunButton.setAttribute('style', 'display: var(--fa-display,inline-block);');
-      moonButton.setAttribute('style', 'display: none;');
-      tagBody.setAttribute('style', '')
-    }
-  })
-}
-
-
-// var powSqrtButton = document.getElementsByClassName('pow-sqrt');
-
-// for (let i = 0; i < powSqrtButton.length; i++) {
-//   powSqrtButton[i].addEventListener('click', function () {
-//     const getExValues = getExValue();
-//     let exValue = getResult();
-//     console.log(exValue);
-    
-//     if (exValue != '') {
-//       exValue = getExValues + Math.pow(exValue, 2);
-//       showExValue(getExValues);
-//       showResult(exValue);
-//     } else {
-//       console.log('casdbchjkasbdfkj');
-//     }
-//   })
-// }
+piButton.addEventListener('click', function () {
+  const getExValues = getExValue();
+  showExValue(getExValues)
+  showResult(this.id)
+})
