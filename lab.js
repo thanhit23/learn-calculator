@@ -37,7 +37,7 @@ function removeStringFormat(number) {
 }
 
 for (let i = 0; i < number.length; i++) {
-  number[i].addEventListener('click', function() {
+  number[i].addEventListener('click', function () {
     let currenValue = getResult();
     const id = this.id;
     currenValue = currenValue + id;
@@ -65,13 +65,13 @@ for (let i = 0; i < operatorButton.length; i++) {
     const getValue = removeStringFormat(getResult());
     showExValues = getExValue();
     showExValues = showExValues + (getValue + this.id)
-    console.log(showExValues);
     showExValue(showExValues);
     showResult('');
   }) 
 }
 
 resultButton.addEventListener('click', function () {
+  console.log('afasd');
   let getExValues = getExValue();
   const getValue = getResult();
   const result = eval(getExValues + getValue);
@@ -81,8 +81,8 @@ resultButton.addEventListener('click', function () {
 
 for (let i = 0; i < bracketButton.length; i++) {
   bracketButton[i].addEventListener('click', function () {
+    console.log(this.id);
     if (this.id == 'bracket-left') {
-
       const exValue = getExValue();
       showExValue(exValue + '(');
     } else {
