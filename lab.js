@@ -65,7 +65,6 @@ for (let i = 0; i < operatorButton.length; i++) {
     const getValue = removeStringFormat(getResult());
     showExValues = getExValue();
     showExValues = showExValues + (getValue + this.id)
-    console.log(showExValues);
     showExValue(showExValues);
     showResult('');
   }) 
